@@ -16,12 +16,10 @@ jobs:
                 cd openwrt
                 wget https://patch-diff.githubusercontent.com/raw/openwrt/openwrt/pull/15702.patch
                 wget https://patch-diff.githubusercontent.com/raw/openwrt/openwrt/pull/15703.patch
-                wget https://patch-diff.githubusercontent.com/raw/openwrt/openwrt/pull/15704.patch
-                wget https://patch-diff.githubusercontent.com/raw/openwrt/openwrt/pull/15705.patch
+                wget https://gist.githubusercontent.com/mj22226/562e59b54b4338d80ca82941ce7cf9b2/raw/bc8682e1455c652d8226cba08dfceae3c8318dbe/1817.patch
                 git apply 15702.patch
                 git apply 15703.patch
-                git apply 15704.patch
-                git apply 15705.patch
+                git apply 1817.patch
                 ./scripts/feeds update -a
                 ./scripts/feeds install -a
                 make defconfig
@@ -34,15 +32,15 @@ jobs:
               uses: ClementTsang/delete-tag-and-release@v0.4.0
               with:
                 delete_release: true
-                tag_name: ipq807x-18.1.7
+                tag_name: ipq807x-18.1.8
               env:
                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             - name: Create release
               uses: ncipollo/release-action@v1.14.0
               with:
                 allowUpdates: true
-                name: IPQ807X LLVM TOOLCHAIN v18.1.7 ${{ env.D }}
-                tag: ipq807x-18.1.7
+                name: IPQ807X LLVM TOOLCHAIN v18.1.8 ${{ env.D }}
+                tag: ipq807x-18.1.8
                 replacesArtifacts: true
                 makeLatest: true
                 token: "${{ secrets.GITHUB_TOKEN }}"
