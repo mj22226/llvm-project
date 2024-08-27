@@ -25,8 +25,9 @@ jobs:
                 make defconfig
                 make download -j32
                 make tools/install -j4
-                make -j$(nproc) 'IGNORE_ERRORS=n m'
-                rm -rf bin/targets/rockchip/armv8/packages
+                make -j$(nproc) 'IGNORE_ERRORS=n m'  || true
+                tar -czvf bin/targets/rockchip/armv8/logs.tar.gz logs
+                rm -rf bin/targets/rockchip/armv8/packages || true
                 echo "D=$(date +'%Y.%m.%d')" >> $GITHUB_ENV
             - name: Delete tag
               uses: ClementTsang/delete-tag-and-release@v0.4.0
