@@ -14,8 +14,8 @@ jobs:
                 git clone https://github.com/openwrt/openwrt.git
                 cp .github/workflows/ipq807x openwrt/.config
                 cd openwrt
-                wget https://gist.githubusercontent.com/mj22226/70d314fcabe2adcf4aa4ada578ecd784/raw/8092e732c83d16207db5864cb50cce67d6e745cd/1910.patch
-                git apply 1910.patch
+                wget https://github.com/mj22226/source/commit/d9e9d343e650537cdcba2bef208988481b634475.patch
+                git apply d9e9d343e650537cdcba2bef208988481b634475.patch
                 ./scripts/feeds update -a
                 ./scripts/feeds install -a
                 make defconfig
