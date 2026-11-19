@@ -163,7 +163,7 @@ jobs:
             - name: Setup Ubuntu
               run: |
                 sudo apt update
-                sudo apt install -y subversion build-essential gettext 2to3 python3-pyelftools python3-distutils-extra
+                sudo apt install -y subversion build-essential gettext python3-pyelftools python3-distutils-extra
             - name: checkout
               uses: actions/checkout@main
             - name: Build
