@@ -14,7 +14,6 @@ jobs:
                 cd openwrt
                 wget https://github.com/mj22226/source/commit/d403ba188dea5cbd1b63b64e60b33796407ca5f1.patch -O llvm.patch
                 git apply llvm.patch || true
-                git show fd3b9d4678072e0ba163d946a50106927348a52d | git apply -R
                 ./scripts/feeds update -a
                 ./scripts/feeds install -a
                 echo "CONFIG_TARGET_bcm27xx=y" > .config
@@ -34,8 +33,10 @@ jobs:
                 CONFIG_USE_APK=y
                 make defconfig
                 make download -j32
-                make -j$(nproc) 'IGNORE_ERRORS=n m'
-                rm -rf bin/targets/bcm27xx/bcm2712/packages
+                make toolchain/install -j$(nproc) || true
+                make target/llvm-bpf/install -j$(nproc) || true
+                make target/toolchain/install -j$(nproc) || true
+                rm -rf bin/targets/bcm27xx/bcm2712/packages || true
                 echo "D=$(date +'%Y.%m.%d')" >> $GITHUB_ENV
                 echo "PKG_VERSION=$(grep -n "PKG_VERSION:=" tools/llvm-bpf/Makefile | tail -c +17)" >> $GITHUB_ENV
             - name: Delete tag
@@ -68,7 +69,6 @@ jobs:
                 cd openwrt
                 wget https://github.com/mj22226/source/commit/d403ba188dea5cbd1b63b64e60b33796407ca5f1.patch -O llvm.patch
                 git apply llvm.patch || true
-                git show fd3b9d4678072e0ba163d946a50106927348a52d | git apply -R
                 ./scripts/feeds update -a
                 ./scripts/feeds install -a
                 echo "CONFIG_TARGET_mediatek=y" > .config
@@ -88,9 +88,11 @@ jobs:
                 CONFIG_USE_APK=y
                 make defconfig
                 make download -j32
-                make -j$(nproc) 'IGNORE_ERRORS=n m'
-                rm -rf bin/targets/mediatek/filogic/packages
-                rm -f bin/targets/mediatek/filogic/*.bin
+                make toolchain/install -j$(nproc) || true
+                make target/llvm-bpf/install -j$(nproc) || true
+                make target/toolchain/install -j$(nproc) || true
+                rm -rf bin/targets/mediatek/filogic/packages || true
+                rm -f bin/targets/mediatek/filogic/*.bin || true
                 echo "D=$(date +'%Y.%m.%d')" >> $GITHUB_ENV
                 echo "PKG_VERSION=$(grep -n "PKG_VERSION:=" tools/llvm-bpf/Makefile | tail -c +17)" >> $GITHUB_ENV
             - name: Delete tag
@@ -123,7 +125,6 @@ jobs:
                 cd openwrt
                 wget https://github.com/mj22226/source/commit/d403ba188dea5cbd1b63b64e60b33796407ca5f1.patch -O llvm.patch
                 git apply llvm.patch || true
-                git show fd3b9d4678072e0ba163d946a50106927348a52d | git apply -R
                 ./scripts/feeds update -a
                 ./scripts/feeds install -a
                 echo "CONFIG_TARGET_qualcommax=y" > .config
@@ -143,8 +144,10 @@ jobs:
                 CONFIG_USE_APK=y
                 make defconfig
                 make download -j32
-                make -j$(nproc) 'IGNORE_ERRORS=n m'
-                rm -rf bin/targets/qualcommax/ipq807x/packages
+                make toolchain/install -j$(nproc) || true
+                make target/llvm-bpf/install -j$(nproc) || true
+                make target/toolchain/install -j$(nproc) || true
+                rm -rf bin/targets/qualcommax/ipq807x/packages || true
                 echo "D=$(date +'%Y.%m.%d')" >> $GITHUB_ENV
                 echo "PKG_VERSION=$(grep -n "PKG_VERSION:=" tools/llvm-bpf/Makefile | tail -c +17)" >> $GITHUB_ENV
             - name: Delete tag
@@ -201,8 +204,10 @@ jobs:
                 CONFIG_USE_APK=y
                 make defconfig
                 make download -j32
-                make -j$(nproc) 'IGNORE_ERRORS=n m'
-                rm -rf bin/targets/rockchip/armv8/packages
+                make toolchain/install -j$(nproc) || true
+                make target/llvm-bpf/install -j$(nproc) || true
+                make target/toolchain/install -j$(nproc) || true
+                rm -rf bin/targets/rockchip/armv8/packages || true
                 echo "D=$(date +'%Y.%m.%d')" >> $GITHUB_ENV
                 echo "PKG_VERSION=$(grep -n "PKG_VERSION:=" tools/llvm-bpf/Makefile | tail -c +17)" >> $GITHUB_ENV
             - name: Delete tag
@@ -235,7 +240,6 @@ jobs:
                 cd openwrt
                 wget https://github.com/mj22226/source/commit/d403ba188dea5cbd1b63b64e60b33796407ca5f1.patch -O llvm.patch
                 git apply llvm.patch || true
-                git show fd3b9d4678072e0ba163d946a50106927348a52d | git apply -R
                 ./scripts/feeds update -a
                 ./scripts/feeds install -a
                 echo "CONFIG_TARGET_x86=y" > .config
@@ -255,8 +259,10 @@ jobs:
                 CONFIG_USE_APK=y
                 make defconfig
                 make download -j32
-                make -j$(nproc) 'IGNORE_ERRORS=n m'
-                rm -rf bin/targets/x86/64/packages
+                make toolchain/install -j$(nproc) || true
+                make target/llvm-bpf/install -j$(nproc) || true
+                make target/toolchain/install -j$(nproc) || true
+                rm -rf bin/targets/x86/64/packages || true
                 echo "D=$(date +'%Y.%m.%d')" >> $GITHUB_ENV
                 echo "PKG_VERSION=$(grep -n "PKG_VERSION:=" tools/llvm-bpf/Makefile | tail -c +17)" >> $GITHUB_ENV
             - name: Delete tag
