@@ -14,6 +14,7 @@ jobs:
                 cd openwrt
                 wget https://github.com/mj22226/source/commit/d403ba188dea5cbd1b63b64e60b33796407ca5f1.patch -O llvm.patch
                 git apply llvm.patch || true
+                git show fd3b9d4678072e0ba163d946a50106927348a52d | git apply -R
                 ./scripts/feeds update -a
                 ./scripts/feeds install -a
                 echo "CONFIG_TARGET_bcm27xx=y" > .config
@@ -67,6 +68,7 @@ jobs:
                 cd openwrt
                 wget https://github.com/mj22226/source/commit/d403ba188dea5cbd1b63b64e60b33796407ca5f1.patch -O llvm.patch
                 git apply llvm.patch || true
+                git show fd3b9d4678072e0ba163d946a50106927348a52d | git apply -R
                 ./scripts/feeds update -a
                 ./scripts/feeds install -a
                 echo "CONFIG_TARGET_mediatek=y" > .config
@@ -121,6 +123,7 @@ jobs:
                 cd openwrt
                 wget https://github.com/mj22226/source/commit/d403ba188dea5cbd1b63b64e60b33796407ca5f1.patch -O llvm.patch
                 git apply llvm.patch || true
+                git show fd3b9d4678072e0ba163d946a50106927348a52d | git apply -R
                 ./scripts/feeds update -a
                 ./scripts/feeds install -a
                 echo "CONFIG_TARGET_qualcommax=y" > .config
@@ -178,6 +181,7 @@ jobs:
                 cd openwrt
                 wget https://github.com/mj22226/source/commit/d403ba188dea5cbd1b63b64e60b33796407ca5f1.patch -O llvm.patch
                 git apply llvm.patch || true
+                git show fd3b9d4678072e0ba163d946a50106927348a52d | git apply -R
                 ./scripts/feeds update -a
                 ./scripts/feeds install -a
                 echo "CONFIG_TARGET_rockchip=y" > .config
@@ -231,6 +235,7 @@ jobs:
                 cd openwrt
                 wget https://github.com/mj22226/source/commit/d403ba188dea5cbd1b63b64e60b33796407ca5f1.patch -O llvm.patch
                 git apply llvm.patch || true
+                git show fd3b9d4678072e0ba163d946a50106927348a52d | git apply -R
                 ./scripts/feeds update -a
                 ./scripts/feeds install -a
                 echo "CONFIG_TARGET_x86=y" > .config
