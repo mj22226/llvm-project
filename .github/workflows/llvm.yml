@@ -36,7 +36,7 @@ jobs:
                 make -j$(nproc) 'IGNORE_ERRORS=n m'
                 rm -rf bin/targets/bcm27xx/bcm2712/packages
                 echo "D=$(date +'%Y.%m.%d')" >> $GITHUB_ENV
-                echo "PKG_VERSION=$(grep -n "PKG_VERSION:=" tools/llvm-bpf/Makefile | tail -c +17 | tail -c +16)" >> $GITHUB_ENV
+                echo "PKG_VERSION=$(grep -n "PKG_VERSION:=" tools/llvm-bpf/Makefile | tail -c +17)" >> $GITHUB_ENV
             - name: Delete tag
               uses: ClementTsang/delete-tag-and-release@v0.4.0
               with:
@@ -90,7 +90,7 @@ jobs:
                 rm -rf bin/targets/mediatek/filogic/packages
                 rm -f bin/targets/mediatek/filogic/*.bin
                 echo "D=$(date +'%Y.%m.%d')" >> $GITHUB_ENV
-                echo "PKG_VERSION=$(grep -n "PKG_VERSION:=" tools/llvm-bpf/Makefile | tail -c +17 | tail -c +16)" >> $GITHUB_ENV
+                echo "PKG_VERSION=$(grep -n "PKG_VERSION:=" tools/llvm-bpf/Makefile | tail -c +17)" >> $GITHUB_ENV
             - name: Delete tag
               uses: ClementTsang/delete-tag-and-release@v0.4.0
               with:
@@ -143,7 +143,7 @@ jobs:
                 make -j$(nproc) 'IGNORE_ERRORS=n m'
                 rm -rf bin/targets/qualcommax/ipq807x/packages
                 echo "D=$(date +'%Y.%m.%d')" >> $GITHUB_ENV
-                echo "PKG_VERSION=$(grep -n "PKG_VERSION:=" tools/llvm-bpf/Makefile | tail -c +17 | tail -c +16)" >> $GITHUB_ENV
+                echo "PKG_VERSION=$(grep -n "PKG_VERSION:=" tools/llvm-bpf/Makefile | tail -c +17)" >> $GITHUB_ENV
             - name: Delete tag
               uses: ClementTsang/delete-tag-and-release@v0.4.0
               with:
@@ -200,7 +200,7 @@ jobs:
                 make -j$(nproc) 'IGNORE_ERRORS=n m'
                 rm -rf bin/targets/rockchip/armv8/packages
                 echo "D=$(date +'%Y.%m.%d')" >> $GITHUB_ENV
-                echo "PKG_VERSION=$(grep -n "PKG_VERSION:=" tools/llvm-bpf/Makefile | tail -c +17 | tail -c +16)" >> $GITHUB_ENV
+                echo "PKG_VERSION=$(grep -n "PKG_VERSION:=" tools/llvm-bpf/Makefile | tail -c +17)" >> $GITHUB_ENV
             - name: Delete tag
               uses: ClementTsang/delete-tag-and-release@v0.4.0
               with:
@@ -253,7 +253,7 @@ jobs:
                 make -j$(nproc) 'IGNORE_ERRORS=n m'
                 rm -rf bin/targets/x86/64/packages
                 echo "D=$(date +'%Y.%m.%d')" >> $GITHUB_ENV
-                echo "PKG_VERSION=$(grep -n "PKG_VERSION:=" tools/llvm-bpf/Makefile | tail -c +17 | tail -c +16)" >> $GITHUB_ENV
+                echo "PKG_VERSION=$(grep -n "PKG_VERSION:=" tools/llvm-bpf/Makefile | tail -c +17)" >> $GITHUB_ENV
             - name: Delete tag
               uses: ClementTsang/delete-tag-and-release@v0.4.0
               with:
