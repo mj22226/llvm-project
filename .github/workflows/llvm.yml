@@ -28,8 +28,9 @@ jobs:
                 echo "# CONFIG_TARGET_ROOTFS_SQUASHFS is not set" >> .config
                 echo "CONFIG_USE_LLVM_BUILD=y" >> .config
                 echo "CONFIG_MAKE_TOOLCHAIN=y" >> .config
-                echo "CONFIG_PACKAGE_opkg=y" >> .config
+                echo "# CONFIG_PACKAGE_opkg is not set" >> .config
                 echo "CONFIG_PACKAGE_base-files=y" >> .config
+                CONFIG_USE_APK=y
                 make defconfig
                 make download -j32
                 make -j$(nproc) 'IGNORE_ERRORS=n m'
@@ -80,8 +81,9 @@ jobs:
                 echo "# CONFIG_TARGET_ROOTFS_SQUASHFS is not set" >> .config
                 echo "CONFIG_USE_LLVM_BUILD=y" >> .config
                 echo "CONFIG_MAKE_TOOLCHAIN=y" >> .config
-                echo "CONFIG_PACKAGE_opkg=y" >> .config
+                echo "# CONFIG_PACKAGE_opkg is not set" >> .config
                 echo "CONFIG_PACKAGE_base-files=y" >> .config
+                CONFIG_USE_APK=y
                 make defconfig
                 make download -j32
                 make -j$(nproc) 'IGNORE_ERRORS=n m'
@@ -133,8 +135,9 @@ jobs:
                 echo "# CONFIG_TARGET_ROOTFS_SQUASHFS is not set" >> .config
                 echo "CONFIG_USE_LLVM_BUILD=y" >> .config
                 echo "CONFIG_MAKE_TOOLCHAIN=y" >> .config
-                echo "CONFIG_PACKAGE_opkg=y" >> .config
+                echo "# CONFIG_PACKAGE_opkg is not set" >> .config
                 echo "CONFIG_PACKAGE_base-files=y" >> .config
+                CONFIG_USE_APK=y
                 make defconfig
                 make download -j32
                 make -j$(nproc) 'IGNORE_ERRORS=n m'
@@ -189,8 +192,9 @@ jobs:
                 echo "# CONFIG_TARGET_ROOTFS_SQUASHFS is not set" >> .config
                 echo "CONFIG_USE_LLVM_BUILD=y" >> .config
                 echo "CONFIG_MAKE_TOOLCHAIN=y" >> .config
-                echo "CONFIG_PACKAGE_opkg=y" >> .config
+                echo "# CONFIG_PACKAGE_opkg is not set" >> .config
                 echo "CONFIG_PACKAGE_base-files=y" >> .config
+                CONFIG_USE_APK=y
                 make defconfig
                 make download -j32
                 make -j$(nproc) 'IGNORE_ERRORS=n m'
@@ -241,8 +245,9 @@ jobs:
                 echo "# CONFIG_TARGET_ROOTFS_SQUASHFS is not set" >> .config
                 echo "CONFIG_USE_LLVM_BUILD=y" >> .config
                 echo "CONFIG_MAKE_TOOLCHAIN=y" >> .config
-                echo "CONFIG_PACKAGE_opkg=y" >> .config
+                echo "# CONFIG_PACKAGE_opkg is not set" >> .config
                 echo "CONFIG_PACKAGE_base-files=y" >> .config
+                CONFIG_USE_APK=y
                 make defconfig
                 make download -j32
                 make -j$(nproc) 'IGNORE_ERRORS=n m'
